@@ -50,7 +50,13 @@ body {
 .row:last-child {
     border-bottom: none;
 }
-
+.msg {
+    border: none;
+    font-size: 26px;
+    background-color: #ffffff;
+    color: #000066;
+    text-align: center;
+}
 
 /*------------------------------------
  *  col
