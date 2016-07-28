@@ -1,44 +1,44 @@
 // freeCodeCamp - Tic Tac Toe Game
 
-$('#svgintro').svg({onLoad: drawIntro});
-
-function drawIntro(svg) {
-    svg.circle(75, 75, 50,
-        {fill: 'none', stroke: 'red', strokeWidth: 3});
-    var g = svg.group({stroke: 'black', strokeWidth: 2});
-    svg.line(g, 15, 75, 135, 75);
-    svg.line(g, 75, 15, 75, 135);
-}
-
-
-
 $(document).ready(function(){
+
     //global variables
     var player = [];
     var computer = [];
     var computerTurn = false;
     var win = false;
-    var playerSymbol;
+    var playerSymbol, computerSymbol;
+
+    $('#myModal').modal('show');
 
     //ask for player symbol input
-    playerSymbol = prompt("X XOR O?");
-    computerSymbol = (playerSymbol === "X") ? "O" : "X";
+    $('#X').click(function(){
+        playerSymbol = "X"
+        //console.log(playerSymbol);
+        computerSymbol = "O";
+    });
+
+    $('#O').click(function(){
+        playerSymbol = "O"
+        //alert(playerSymbol);
+        computerSymbol = "X";
+    });
 
     if (computerTurn) {
         computerMove();
     }else {
-        hint("Your move first");
+        //hint("Your move first");
     }
 
     $('.square').click(function(){
         $('.square').text(playerSymbol);
-        player.push($('.square').attr('id');
+        player.push($('.square').attr('id'));
         checkWin();
         computerMove();
     });
     //computer move
     function computerMove(){
-        if ()
+
     }
 
     //check if there is a win
@@ -50,7 +50,7 @@ $(document).ready(function(){
         if (player.length < 3 && computer.length < 3){
             return;
         }else if (player.length === 3) {
-            allMatch(player));
+            allMatch(player);
         }else {
             allMatch(computer);
         }
@@ -80,8 +80,27 @@ $(document).ready(function(){
         //reset grid, check who moves first
 
         computerTurn != computerTurn;
+        hint();
     }
 
+
+    //------------------------------------
+    //  modal
+    //------------------------------------
+    /*
+    $('.js-modal').on('click', function(event){
+        event.preventDefault();
+
+        $('.js-modal').addClass('hidden');
+        $('.js-modal-overlay').addClass('h');
+    });
+
+
+    $('.js-modal-overlay').on('click', function(event) {
+        $('.js-modal').removeClass('hidden');
+        $('.js-modal-overlay').removeClass('hidden');
+    });
+    */
 
 
 });
