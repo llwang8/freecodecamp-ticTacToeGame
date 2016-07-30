@@ -5,22 +5,21 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
         <link href='https://fonts.googleapis.com/css?family=Orbitron:900' rel='stylesheet' type='text/css'>
-
+        <link rel="stylesheet" type="text/css" href="normalize.css">
+        <link rel="stylesheet" type="text/css" href="css/style.css">
 
     </head>
     <body>
-        <h1 class="game-title center">Tic Tac Toe Game</h1>
+        <h1 class="game-title">Tic Tac Toe Game</h1>
         <div class="container center">
 
-              <!-- Trigger the modal with a button
+             <!-- Trigger the modal with a button
             <button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal">Open Small Modal</button>
-                -->
+            -->
 
               <!-- Modal -->
-            <div class="modal fade" id="myModal" role="dialog">
+            <div class="modal custom fade" id="myModal" role="dialog">
                 <div class="modal-dialog modal-sm">
                   <div class="modal-content">
                     <div class="modal-header">
@@ -31,8 +30,8 @@
                       <p>Please pick your symbol to start the game:</p>
                     </div>
                     <div class="modal-footer">
-                      <button type="button" id="X" class="btn btn-default" data-dismiss="modal">X</button>
-                       <button type="button" id="O" class="btn btn-default" data-dismiss="modal">O</button>
+                      <button type="button" id="X" class="btn btn-default sym" data-dismiss="modal">X</button>
+                       <button type="button" id="O" class="btn btn-default sym" data-dismiss="modal">O</button>
                     </div>
                   </div>
                 </div>
@@ -40,24 +39,27 @@
 
             <!-- game grid -->
             <div class="row">
-                <div class="col-xs-4 col-sm-4 card square" id="11"></div>
-                <div class="col-xs-4 col-sm-4 card square" id="12"></div>
-                <div class="col-xs-4 col-sm-4 card square" id="13"></div>
+                <div class="col-xs-4 col-sm-4 square" id="1">e</div>
+                <div class="col-xs-4 col-sm-4 square" id="2">e</div>
+                <div class="col-xs-4 col-sm-4 square" id="3">e</div>
             </div>
             <div class="row">
-                <div class="col-xs-4 col-sm-4 card square" id="21"></div>
-                <div class="col-xs-4 col-sm-4 card square" id="22"></div>
-                <div class="col-xs-4 col-sm-4 card square" id="23"></div>
+                <div class="col-xs-4 col-sm-4 square" id="4"></div>
+                <div class="col-xs-4 col-sm-4 square" id="5"></div>
+                <div class="col-xs-4 col-sm-4 square" id="6"></div>
             </div>
             <div class="row">
-                <div class="col-xs-4 col-sm-4 card square" id="31"></div>
-                <div class="col-xs-4 col-sm-4 card square" id="32"></div>
-                <div class="col-xs-4 col-sm-4 card square" id="33"></div>
+                <div class="col-xs-4 col-sm-4 square" id="7"></div>
+                <div class="col-xs-4 col-sm-4 square" id="8"></div>
+                <div class="col-xs-4 col-sm-4 square" id="9"></div>
             </div>
 
         </div>
 
-        <div class=" msg"></div>
+        <div class=" msg">hello</div>
+
+
+
         <!--
         <div class="" >
                 <svg id="svgintro" version="1.1" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 340 340">
@@ -65,12 +67,13 @@
         </div>
         -->
 
-
-        <script type="text/javascript" src="jQuery.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="js/jQuery.js"></script>
 
         <!--  include jQuery SVG CSS
         <link rel="stylesheet" type="text/css" href="jquery.svg.css">
-        <script type="text/javascript" src="jquery.svg.js"></script>
+        <script type="text/javascript" src="js/jquery.svg.js"></script>
         -->
     </body>
 </html>

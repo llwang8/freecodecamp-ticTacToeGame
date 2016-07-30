@@ -37,7 +37,8 @@ button:focus {
 ------------------------------------*/
 .container {
     background-color: #000066;
-    max-width: 450px;
+    max-width: 456px;
+    height: auto;
     padding: ;
     border: 3px solid #cc9900;
     color: #d3d3d3;
@@ -50,6 +51,7 @@ button:focus {
 ------------------------------------*/
 .row {
     border-bottom: 3px solid #cc9900;
+    padding: 0;
 
 }
 .row:last-child {
@@ -69,7 +71,7 @@ button:focus {
 ------------------------------------*/
 .col-sm-4 {
     border-right: 3px solid #cc9900;
-    height: 100%;
+    height: ;
 }
 .col-sm-4:last-child {
     border-right: none;
@@ -88,7 +90,25 @@ button:focus {
  *  modal
 ------------------------------------*/
 .modal {
-    width: 100px;
+    width: 390px;
+    outline: none;
+
+}
+
+.modal-content {
+   background-color: #000066;
+}
+
+.modal-header.close {
+    color: #d3d3d3;
+
+}
+.modal-footer {
+    border: none;
+}
+
+.modal-footer.symbol {
+    background-color: #000066;
 }
 
 .modal.hidden {
@@ -98,14 +118,8 @@ button:focus {
 .modal-content {
     padding: 20px;
 }
+.
 
-.modal-overlay {
-
-}
-
-.modal-overlay.hidden {
-
-}
 
 
 

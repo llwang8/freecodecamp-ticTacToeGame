@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Build a Tic Tac Toe Game</title>
+         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="normalize.css">
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+        <link href='https://fonts.googleapis.com/css?family=Orbitron:900' rel='stylesheet' type='text/css'>
+    </head>
+    <body>
+        <h1 class="logo">Tic Tac Toe Game</h1>
+        <div class="container ">
+
+            <!- game grid -->
+            <div class="row">
+                <div class="col-sm-4 col-xs-4 card square" id="11"></div>
+                <div class="col-sm-4 col-xs-4 card square" id="12"></div>
+                <div class="col-sm-4 col-xs-4 card square" id="13"></div>
+            </div>
+            <div class="row">
+                <div class="col-sm-4 col-xs-4 card square" id="21"></div>
+                <div class="col-sm-4 col-xs-4 card square" id="22"></div>
+                <div class="col-sm-4 col-xs-4 card square" id="23"></div>
+            </div>
+            <div class="row">
+                <div class="col-sm-4 col-xs-4 card square" id="31"></div>
+                <div class="col-sm-4 col-xs-4 card square" id="32"></div>
+                <div class="col-sm-4 col-xs-4 card square" id="33"></div>
+            </div>
+
+        </div>
+
+           <!-- Trigger the modal with a button -->
+            <button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal">Open Small Modal</button>
+
+
+              <!-- Modal -->
+            <div class="modal fade" id="myModal" role="dialog">
+                <div class="modal-dialog modal-sm">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal">&times;</button>
+                      <h4 class="modal-title">Hello, Welcome to the game!</h4>
+                    </div>
+                    <div class="modal-body">
+                      <p>Please pick your symbol to start the game:</p>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" id="X" class="btn btn-default" data-dismiss="modal">X</button>
+                       <button type="button" id="O" class="btn btn-default" data-dismiss="modal">O</button>
+                    </div>
+                  </div>
+                </div>
+            </div>
+
+
+
+        <script type="text/javascript" src="jQuery.js"></script>
+    </body>
+</html>
+
