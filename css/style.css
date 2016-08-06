@@ -23,9 +23,9 @@ button:focus {
 }
 
 /*------------------------------------
- *  game
+ *  title
 ------------------------------------*/
-.game-title {
+.title {
     color: #000066;
     text-align: center;
     font-family: 'Orbitron', sans-serif;
@@ -36,12 +36,24 @@ button:focus {
  *  container
 ------------------------------------*/
 .container {
-    background-color: #000066;
-    max-width: 456px;
+    position: relative;
+    margin: 0 auto;
+    max-width: 450px;
+
+}
+
+/*------------------------------------
+ *  game
+------------------------------------*/
+.game {
+    position: absolute;
+    top: 0;
+    left: 10px;
+    background-color: ;
+    width: auto;
     height: auto;
-    padding: ;
-    border: 3px solid #cc9900;
-    color: #d3d3d3;
+    padding: 0;
+    margin: 0;
 
 }
 
@@ -50,7 +62,8 @@ button:focus {
  *  row
 ------------------------------------*/
 .row {
-    border-bottom: 3px solid #cc9900;
+    border-bottom: ;
+    height: 150px;
     padding: 0;
 
 }
@@ -58,6 +71,9 @@ button:focus {
     border-bottom: none;
 }
 .msg {
+    position: absolute;
+    top: 470px;
+    left: 100px;
     border: none;
     font-size: 22px;
     background-color: #ffffff;
@@ -69,8 +85,9 @@ button:focus {
 /*------------------------------------
  *  col
 ------------------------------------*/
+
 .col-sm-4 {
-    border-right: 3px solid #cc9900;
+    border-right: ;
     height: ;
 }
 .col-sm-4:last-child {
@@ -97,12 +114,17 @@ button:focus {
 
 .modal-content {
    background-color: #000066;
+   color: #d3d3d3;
 }
 
 .modal-header.close {
     color: #d3d3d3;
-
+    transition: transform 4s ease-out;
 }
+.modal-header.close {
+    transform: rotate(360 deg);
+}
+
 .modal-footer {
     border: none;
 }

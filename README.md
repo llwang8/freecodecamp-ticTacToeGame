@@ -1,4 +1,4 @@
-## FreeCodeCamp: Build a Tic Tac Toe Game
+# FreeCodeCamp: Build a Tic Tac Toe Game
 
 I built an interactive Tic Tac Toe Game with JavaScript, jQuery, HTML and CSS, while following some best practices for structuring HTML, writing efficient CSS, and commenting code along the way.
 
@@ -10,5 +10,5 @@ Implemented with JavaScript, jQuery, HTML and CSS. Also used normalize.css, digi
 
 # Link
 
-You can view it on codepan:
+You can view it on codepen:
 - [Build a Tic Tac Toe Game]()
