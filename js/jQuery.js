@@ -2,11 +2,17 @@
 
 $(document).ready(function(){
      //global variables
-    var player = new Player;
-    var computer = new Computer;
+    var player = new Player();
+    var computer = new Computer();
+
     var computerTurn = false;
     var canvas = document.getElementById('ctx');
     var ctx = canvas.getContext('2d');
+    var data = {
+        canvas: canvas;
+        ctx: ctx;
+    };
+    var board = new Board(data);
     var result = "";
 
     $('#myModal').modal('show');
@@ -23,6 +29,9 @@ $(document).ready(function(){
         //alert(playerSymbol);
         computer.symbol = "X";
     });
+
+    //draw board
+    board.drawBoard();
 
     while(!player.win && !computer.win && Board.emptyCells.length > 0) {
         play();

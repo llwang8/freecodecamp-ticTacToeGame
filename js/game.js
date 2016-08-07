@@ -2,16 +2,16 @@
 
 function Player(){
     symbol: "",
-    turn: "",
+    turn: false,
     win: false
 }
 
 function Computer(){
     symbol: "",
-    turn: "",
+    turn: false,
     win: false,
     move: function(){
-        //getEmptyCell();
+        //get Empty Cell
         //strategies to get the optimal move
         //update emptyCell;
         //drawSymbol();
@@ -49,11 +49,13 @@ function play(){
         //player moves
         canvas.addEventListener('mousemove', function(evt) {
             var mousePos = getMousePos(evt);
-            var message = 'Mouse position: ' + mousePos.x + ',' + mousePos.y;
+            //var message = 'Mouse position: ' + mousePos.x + ',' + mousePos.y;
+            Board.updateCells(player.symbol, mousePos.x, mousePos.y));
             drawSymbol(player.symbol, mousePos.x, mousePos.y);
+
         }, false);
     computerTurn = true;
-    Board.updateCells();
+
     //check if there is a win update Player or Computer's win state
     //check who moves first
     //display move
