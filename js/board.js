@@ -6,9 +6,9 @@ function Board(data){
     }
     this.cells = []
     this.coordinates = [
-                    (50,75), (225, 75), (375, 75),
-                    (50,225), (225, 225), (375, 225),
-                    (50,375), (225, 375), (375, 375)
+                    [50,75], [225, 75], [375, 75],
+                    [50,225], [225, 225], [375, 225],
+                    [50,375], [225, 375], [375, 375]
                  ];
     this.emptyCells = [];
     this.winLine = "";
@@ -126,13 +126,16 @@ Board.prototype.drawSymbol = function(sym, x, y){
         this.updateMove(x, y);
 }
 
-Board.prototype.updateEmptyCells = function(){
+Board.prototype.updateEmptyCells = function(elem){
+    /*
     this.emptyCells = [];
     for (var i = 0; i < this.cells.length; i++){
         if (this.cells[i] === "E"){
             this.emptyCells.push(i);
         }
     }
+    */
+    this.emptyCells.splice(this.emptyCells.indexOf(elem), 1);
 }
 
 Board.prototype.getMousePos = function(evt) {
