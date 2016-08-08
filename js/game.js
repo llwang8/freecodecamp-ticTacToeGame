@@ -2,36 +2,53 @@
 
 function Player(){
     symbol: "",
-    turn: false,
     win: false
+    move: function(){
+        canvas.addEventListener('mousemove', function(evt) {
+            var mousePos = getMousePos(evt);
+
+            var cellNum = board.getCellNum(mousePos.x, mousePos.y));
+            updateBoard(cellNum);
+
+            if (checkWin){
+                player.win = true;
+            }
+
+        }, false);
+        computerTurn = !computerTurn;
+    }
 }
 
 function Computer(){
     symbol: "",
-    turn: false,
     win: false,
     move: function(){
         var coord;
         //get Empty Cell
         var emptyCells = board.emptyCells;
     //strategies to get the optimal move
-        var cellNum;  //index of cell of computer move
-        //update cells arr
-        board.cell[cellNum] = computer.symbol;
-        //update emptyCell;
-        board.updateEmptyCells(cellNum);
-        //get coord, drawSymbol();
-        coord = board.coordinates[cellNum - 1];
-        board.drawSymbol(computer.symbol,coord[0], coord[1]);
+        var cellNum;  //index of cell of computer move starting 0
+
+
+        updateBoard(cellNum);
+        if (checkWin){
+            computer.win = true;
+        }
         computerTurn = !computerTurn;
     }
 }
 
+function updateBoard(sym, cellNum){
+     //update cells arr
+        board.cell[cellNum] = sym;
+        //update emptyCell;
+        board.updateEmptyCells(cellNum);
+        //get coord, drawSymbol();
+        coord = board.coordinates[cellNum];
+        board.drawSymbol(computer.symbol,coord[0], coord[1]);
+}
 
 function checkWin(){
-    //find
-    //update Board.winLine;
-    //return true/false  //if not win, return 0
     var winLine = 0;
     if (board.cells[0] === board.cells[1] === board.cells[2]) {winLine = 1;}
     if (board.cells[3] === board.cells[4] === board.cells[5]) {winLine = 2;}
@@ -41,8 +58,24 @@ function checkWin(){
     if (board.cells[2] === board.cells[5] === board.cells[8]) {winLine = 6;}
     if (board.cells[0] === board.cells[4] === board.cells[8]) {winLine = 7;}
     if (board.cells[2] === board.cells[4] === board.cells[6]) {winLine = 8;}
-
+    if (winLine){
+        board.winLine = winLine;
+    }
     return winLine;
+}
+
+function play(){
+  while(!player.win && !computer.win && Board.emptyCells.length > 0) {
+    if (computer.turn) {
+        computer.move();
+    }
+
+    if (!computer.win){
+        player.move();
+    }
+
+  }
+
 }
 
 function hint(msg){
@@ -58,40 +91,10 @@ function dealResult(sym){
     }
     //hint("Draw!");
 
-    //reset grid
+    //reset grid, variables
     board.init();
     board.drawGrid();
+    player.win = false;
+    computer.win = false;
     play();
-}
-
-
-function play(){
-    //resut global var except turn, canvas
-    //check who moves first
-    if (computer.turn) {
-            computer.move();
-            computer.turn = false;
-        }
-
-        //player moves
-        canvas.addEventListener('mousemove', function(evt) {
-            var mousePos = getMousePos(evt);
-            //var message = 'Mouse position: ' + mousePos.x + ',' + mousePos.y;
-            Board.updateCells(player.symbol, mousePos.x, mousePos.y));
-            drawSymbol(player.symbol, mousePos.x, mousePos.y);
-
-        }, false);
-    computerTurn = true;
-
-    //check if there is a win, update Player or Computer's win state
-    if (player.win){
-        result = player.symbol;
-    }else if (computer.win){
-        result = computer.symbol;
-    }else {
-        result = "Draw";
-    }
-
-    dealResult(result);
-
 }

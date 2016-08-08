@@ -4,15 +4,19 @@ function Board(data){
         this.canvas = data.canvas;
         this.ctx = data.ctx;
     }
-    this.cells = []
+    this.cells = [];
+    this.emptyCells = [];
+    this.winLine = "";
     this.coordinates = [
                     [50,75], [225, 75], [375, 75],
                     [50,225], [225, 225], [375, 225],
                     [50,375], [225, 375], [375, 375]
                  ];
-    this.emptyCells = [];
-    this.winLine = "";
+
     init: function(){
+        this.cells = [];
+        this.emptyCells = [];
+        this.winLine = "";
         for (var i = 0; i < 9; i++){
             this.cell.push("E");
             this.emptyCells.push(i);
@@ -122,20 +126,6 @@ Board.prototype.drawSymbol = function(sym, x, y){
         //var ctx = document.getElementById("ctx").getContext("2d");
         this.ctx.font = "18px sans-serif";
         this.ctx.fillText = (sym, x, y);
-        //update Board.cell, emptyCells
-        this.updateMove(x, y);
-}
-
-Board.prototype.updateEmptyCells = function(elem){
-    /*
-    this.emptyCells = [];
-    for (var i = 0; i < this.cells.length; i++){
-        if (this.cells[i] === "E"){
-            this.emptyCells.push(i);
-        }
-    }
-    */
-    this.emptyCells.splice(this.emptyCells.indexOf(elem), 1);
 }
 
 Board.prototype.getMousePos = function(evt) {
@@ -145,7 +135,7 @@ Board.prototype.getMousePos = function(evt) {
         y: evt.clientY - rect.top
     };
 }
-Board.prototype.updateCells = function(sym, x, y){
+Board.prototype.getCellNum = function(x, y){
     var row, col, cell;
     if (x <= 150){
         col = 1;
@@ -161,32 +151,29 @@ Board.prototype.updateCells = function(sym, x, y){
     }else {
         row = 3;
     }
-    if (row === 1 && col === 1){cell = 1;}
-    if (row === 1 && col === 2){cell = 2;}
-    if (row === 1 && col === 3){cell = 3;}
-    if (row === 2 && col === 1){cell = 4;}
-    if (row === 2 && col === 2){cell = 5;}
-    if (row === 2 && col === 3){cell = 6;}
-    if (row === 3 && col === 1){cell = 7;}
-    if (row === 3 && col === 2){cell = 8;}
-    if (row === 3 && col === 3){cell = 9;}
-    this.board.cell[cell - 1] = sym;
+    if (row === 1 && col === 1){cell = 0;}
+    if (row === 1 && col === 2){cell = 1;}
+    if (row === 1 && col === 3){cell = 2;}
+    if (row === 2 && col === 1){cell = 3;}
+    if (row === 2 && col === 2){cell = 4;}
+    if (row === 2 && col === 3){cell = 5;}
+    if (row === 3 && col === 1){cell = 6;}
+    if (row === 3 && col === 2){cell = 7;}
+    if (row === 3 && col === 3){cell = 8;}
+    //this.board.cell[cell] = sym;
+    return cell;
 }
 
-function allMatch(arr){
-        if (arr[0].charAt(0) === arr[1].charAt(0) && arr[0].charAt(0) === arr[2].charAt(0)){
-            displayWin()    // row match
+Board.prototype.updateEmptyCells = function(elem){
+    /*
+    this.emptyCells = [];
+    for (var i = 0; i < this.cells.length; i++){
+        if (this.cells[i] === "E"){
+            this.emptyCells.push(i);
         }
-        if (arr[0].charAt(1) === arr[1].charAt(1) && arr[0].charAt(1) === arr[2].charAt(1)){
-            displayWin() // col match
-        }
-        if (arr.indexOf("22") >= 0){
-            if (arr.indexOf('13') >= 0  && arr.indexOf('31') >= 0){
-                displayWin(); // diagnol match
-            }else if (arr.indexOf('11') && arr.indexOf('33') >= 0) {
-               displayWin(); // diagnol match
-            }
-
-        }
-
     }
+    */
+    this.emptyCells.splice(this.emptyCells.indexOf(elem), 1);
+}
+
+

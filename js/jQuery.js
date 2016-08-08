@@ -33,9 +33,7 @@ $(document).ready(function(){
     //draw board
     board.drawBoard();
 
-    while(!player.win && !computer.win && Board.emptyCells.length > 0) {
-        play();
-    }
+    play();
 
     if (player.win){
         result = player.symbol;
@@ -45,7 +43,9 @@ $(document).ready(function(){
         result = "Draw";
     }
 
-    dealResult(result);
+    if (result){
+       dealResult(result);
+    }
 
 });
 
